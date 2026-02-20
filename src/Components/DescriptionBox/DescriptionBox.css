@@ -1,28 +1,104 @@
-.descriptionbox{
-    margin: 120px 170px;
+.descriptionbox {
+  width: min(1200px, 100%);
+  margin: 120px auto;
+  padding: 0 170px;
+  box-sizing: border-box;
 }
-.descriptionbox-navigator{
-    display: flex;
+
+.descriptionbox-navigator {
+  display: flex;
+  flex-wrap: wrap; /* allows tabs wrap on small screens */
+  gap: 12px;
 }
-.descriptionbox-nav-box{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    font-weight: 600;
-    width: 171px;
-    height: 70px;
-    border: 1px solid #d0d0d0;
+
+.descriptionbox-nav-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 600;
+
+  width: auto; /* remove fixed width */
+  min-width: 171px; /* keep desktop feel */
+  padding: 0 20px; /* makes tabs flexible */
+  height: 70px;
+
+  border: 1px solid #d0d0d0;
+  box-sizing: border-box;
+  cursor: pointer;
 }
-.descriptionbox-nav-box.fade{
-    background: #FBFBFB;
-    color: #555;
+
+.descriptionbox-nav-box.fade {
+  background: #fbfbfb;
+  color: #555;
 }
-.descriptionbox-description{
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    border: 1px solid #D0D0D0;
-    padding: 48px;
-    padding-bottom: 70px;
+
+.descriptionbox-description {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  border: 1px solid #d0d0d0;
+  padding: 48px;
+  padding-bottom: 70px;
+  box-sizing: border-box;
+}
+@media (max-width: 1024px) {
+  .descriptionbox {
+    padding: 0 40px;
+    margin: 80px auto;
+  }
+
+  .descriptionbox-description {
+    padding: 32px;
+    padding-bottom: 50px;
+  }
+
+  .descriptionbox-nav-box {
+    height: 60px;
+    min-width: 150px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .descriptionbox {
+    padding: 0 18px;
+    margin: 60px auto;
+  }
+
+  .descriptionbox-nav-box {
+    flex: 1; /* tabs share space evenly */
+    min-width: 140px;
+    height: 54px;
+    font-size: 14px;
+  }
+
+  .descriptionbox-description {
+    padding: 22px;
+    padding-bottom: 36px;
+    gap: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .descriptionbox {
+    padding: 0 14px;
+    margin: 45px auto;
+  }
+
+  .descriptionbox-navigator {
+    gap: 10px;
+  }
+
+  .descriptionbox-nav-box {
+    min-width: 0;
+    height: 48px;
+    font-size: 13px;
+    padding: 0 12px;
+  }
+
+  .descriptionbox-description {
+    padding: 16px;
+    padding-bottom: 24px;
+  }
 }

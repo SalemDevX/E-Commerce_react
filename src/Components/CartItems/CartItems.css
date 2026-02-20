@@ -1,94 +1,227 @@
-.cartitems{
-    margin: 100px 170px;
+.cartitems {
+  width: min(1200px, 100%);
+  margin: 100px auto;
+  padding: 0 170px;
+  box-sizing: border-box;
 }
-.cartitems hr{
-    height: 3px;
-    background: #e2e2e2;
-    border: 0;
+
+.cartitems hr {
+  height: 3px;
+  background: #e2e2e2;
+  border: 0;
 }
-.cartitems-format-main{
-    display: grid;
-    grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr 1fr;
-    align-items: center;
-    gap: 75px;
-    padding: 20px 0px;
-    color: #454545;
-    font-size: 18px;
-    font-weight: 600;
+
+/* Top header row + each cart row */
+.cartitems-format-main {
+  display: grid;
+  grid-template-columns: 0.6fr 2fr 1fr 1fr 1fr 0.6fr;
+  align-items: center;
+  gap: 40px;
+  padding: 20px 0;
+  color: #454545;
+  font-size: 18px;
+  font-weight: 600;
 }
-.cartitems-format{
-    font-size: 17px;
-    font-weight: 500;
+
+.cartitems-format {
+  font-size: 17px;
+  font-weight: 500;
 }
-.cart-product-icon{
-    height: 62px;
+
+.cart-product-icon {
+  height: 62px;
+  width: auto;
+  object-fit: contain;
 }
-.cartitems-remove-icon{
-    width: 15px;
-    margin: 0px 40px;
-    cursor: pointer;
+
+.cartitems-remove-icon {
+  width: 15px;
+  cursor: pointer;
+  margin: 0; /* remove fixed margin */
+  justify-self: end;
 }
-.cartitems-quanlity{
-    width: 64px;
-    height: 50px;
-    border: 2px solid #ebebeb;
-    background: white;
+
+.cartitems-quanlity {
+  width: 64px;
+  height: 50px;
+  border: 2px solid #ebebeb;
+  background: white;
 }
-.cartitems-down{
-    display: flex;
-    margin: 100px 0px;
+
+/* Bottom section */
+.cartitems-down {
+  display: flex;
+  gap: 40px;
+  margin: 60px 0;
+  align-items: flex-start;
 }
-.cartitems-total{
-    flex: 1;
-    display: flex;
+
+.cartitems-total {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-right: 0; /* remove fixed margin */
+  gap: 24px;
+}
+
+.cartitems-total-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+}
+
+.cartitems-total button {
+  width: 262px;
+  height: 58px;
+  outline: none;
+  border: none;
+  background: #ff5a5a;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cartitems-promocode {
+  flex: 1;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.cartitems-promocode p {
+  color: #555;
+}
+
+.cartitems-promobox {
+  width: 100%;
+  max-width: 504px;
+  margin-top: 15px;
+  padding-left: 20px;
+  height: 58px;
+  background: #eaeaea;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.cartitems-promobox input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 16px;
+  width: 100%;
+  height: 50px;
+}
+
+.cartitems-promobox button {
+  width: 170px;
+  height: 58px;
+  font-size: 16px;
+  background: black;
+  color: white;
+  cursor: pointer;
+  border: none;
+}
+
+@media (max-width: 1024px) {
+  .cartitems {
+    padding: 0 40px;
+    margin: 70px auto;
+  }
+
+  .cartitems-format-main {
+    gap: 20px;
+    font-size: 16px;
+    grid-template-columns: 0.7fr 2fr 1fr 1fr 0.8fr 0.5fr;
+  }
+
+  .cartitems-down {
+    margin: 50px 0;
+    gap: 28px;
+  }
+
+  .cartitems-total button {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cartitems {
+    padding: 0 18px;
+    margin: 50px auto;
+  }
+
+  /* Hide some columns by making grid simpler */
+  .cartitems-format-main {
+    grid-template-columns: 0.8fr 2fr 1fr 0.5fr;
+    font-size: 15px;
+  }
+
+  /* If your row items match this class, they will follow the same grid */
+  .cartitems-format {
+    grid-template-columns: 0.8fr 2fr 1fr 0.5fr;
+  }
+
+  /* Bottom stacks */
+  .cartitems-down {
     flex-direction: column;
-    margin-right: 200px;
-    gap: 40px;
+  }
+
+  .cartitems-promobox {
+    max-width: 100%;
+  }
+
+  .cartitems-promobox button {
+    width: 140px;
+  }
 }
-.cartitems-total-item{
-    display: flex;
-    justify-content: space-between;
-    padding: 15px 0px;
-}
-.cartitems-total button{
-    width: 262px;
-    height: 58px;
-    outline: none;
-    border: none;
-    background: #ff5a5a;
-    color: #fff;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-}
-.cartitems-promocode{
-    flex: 1;
-    font-size: 16px;
-    font-weight: 500;
-}
-.cartitems-promocode p{
-    color: #555;
-}
-.cartitems-promobox{
-    width: 504px;
-    margin-top: 15px;
-    padding-left: 20px;
-    height: 58px;
-    background: #eaeaea;
-}
-.cartitems-promobox input{
-    border: none;
-    outline: none;
-    background: transparent;
-    font-size: 16px;
-    width: 330px;
-    height: 50px;
-}
-.cartitems-promobox button{
-    width: 170px;
-    height: 58px;
-    font-size: 16px;
-    background: black;
-    color: white;
-    cursor: pointer;
+
+@media (max-width: 480px) {
+  .cartitems {
+    padding: 0 14px;
+    margin: 40px auto;
+  }
+
+  /* Make each row stack nicely */
+  .cartitems-format-main {
+    grid-template-columns: 70px 1fr;
+    gap: 12px;
+    align-items: start;
+  }
+
+  /* Quantity input scales */
+  .cartitems-quanlity {
+    width: 58px;
+    height: 44px;
+  }
+
+  .cart-product-icon {
+    height: 56px;
+  }
+
+  .cartitems-remove-icon {
+    justify-self: start;
+    margin-top: 6px;
+  }
+
+  .cartitems-total button {
+    width: 100%;
+  }
+
+  .cartitems-promobox {
+    padding-left: 14px;
+    height: auto;
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .cartitems-promobox input {
+    height: 44px;
+  }
+
+  .cartitems-promobox button {
+    width: 100%;
+    height: 46px;
+  }
 }
