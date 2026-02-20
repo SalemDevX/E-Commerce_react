@@ -1,73 +1,226 @@
+/* ===== Navbar Base ===== */
 .navbar{
-    display: flex;
-    justify-content: space-around;
-    padding: 16px;
-    box-shadow: 0 1px 3px -2px black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 22px;
+  box-shadow: 0 1px 3px -2px black;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #fff;
 }
+
 .nav-logo{
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
 }
+
+.nav-logo img{
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+}
+
 .nav-logo p{
-    color: #171717;
-    font-size: 38px;
-    font-weight: 600;
+  color: #171717;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+
 }
+
+/* ===== Desktop Menu ===== */
 .nav-menu{
-    display: flex;
-    align-items: center;
-    list-style: none;
-    gap: 50px;
-    color: #626262;
-    font-size: 20px;
-    font-weight: 500;
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 36px;
+  color: #626262;
+  font-size: 18px;
+  font-weight: 500;
 }
+
 .nav-menu li{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 3px;
-    cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
 }
+
+.nav-menu li a{
+  color: inherit;
+  text-decoration: none;
+}
+
 .nav-menu hr{
-    border: none;
-    width: 80%;
-    height: 3px;
-    border-radius: 10px;
-    background: #FF4141;
+  border: none;
+  width: 80%;
+  height: 3px;
+  border-radius: 10px;
+  background: #FF4141;
 }
+
+/* ===== Right Area ===== */
 .nav-login-cart{
-    display: flex;
-    align-items: center;
-    gap: 45px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
 }
+
 .nav-login-cart button{
-    width: 157px;
-    height: 58px;
-    outline: none;
-    border: 1px solid #7a7a7a;
-    border-radius: 75px;
-    color: #515151;
-    font-size: 20px;
-    font-weight: 500;
-    background: white;
-    cursor: pointer;
+  width: 140px;
+  height: 46px;
+  outline: none;
+  border: 1px solid #7a7a7a;
+  border-radius: 75px;
+  color: #515151;
+  font-size: 16px;
+  font-weight: 600;
+  background: white;
+  cursor: pointer;
 }
+
 .nav-login-cart button:active{
-    background: #f3f3f3;
+  background: #f3f3f3;
 }
+
+/* Cart wrapper so badge positions correctly */
+.nav-cart{
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-cart img{
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
 .nav-cart-count{
-    width: 22px;
-    height: 22px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: -35px;
-    margin-left: -55px;
-    border-radius: 11px;
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 999px;
+  font-size: 12px;
+  background: red;
+  color: white;
+  font-weight: 700;
+}
+
+/* ===== Hamburger Button (hidden on desktop) ===== */
+.nav-toggle{
+  display: none;
+  width: 42px;
+  height: 42px;
+  border: 1px solid #e6e6e6;
+  background: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.nav-toggle span{
+  width: 22px;
+  height: 2px;
+  background: #171717;
+  border-radius: 2px;
+  transition: 0.25s;
+}
+
+/* Animate hamburger into X when open */
+.nav-toggle.open span:nth-child(1){
+  transform: translateY(8px) rotate(45deg);
+}
+.nav-toggle.open span:nth-child(2){
+  opacity: 0;
+}
+.nav-toggle.open span:nth-child(3){
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ===== Mobile Menu Panel ===== */
+.nav-mobile{
+  display: none;
+  width: 100%;
+  background: #fff;
+  border-top: 1px solid #eee;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+}
+
+.nav-mobile ul{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding: 14px 18px;
+  gap: 10px;
+  margin: 0;
+}
+
+.nav-mobile li{
+  padding: 12px 10px;
+  border-radius: 10px;
+}
+
+.nav-mobile li a{
+  text-decoration: none;
+  color: #171717;
+  font-weight: 600;
+}
+
+.nav-mobile li.active{
+  background: #fff2f2;
+}
+
+.nav-mobile li.active a{
+  color: #ff4141;
+}
+
+/* ===== Responsive Breakpoints ===== */
+@media (max-width: 900px){
+  .nav-logo p{
+    font-size: 22px;
+  }
+
+  /* Hide desktop menu, show hamburger */
+  .nav-menu{
+    display: none;
+  }
+
+  .nav-toggle{
+    display: inline-flex;
+  }
+
+  /* Make login button smaller */
+  .nav-login-cart button{
+    width: 110px;
+    height: 42px;
     font-size: 14px;
-    background: red;
-    color: white;
+  }
+
+  .nav-cart img{
+    width: 28px;
+    height: 28px;
+  }
+
+  /* Show mobile panel when component adds "show" class */
+  .nav-mobile.show{
+    display: block;
+  }
 }
