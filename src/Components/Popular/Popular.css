@@ -1,23 +1,82 @@
 .popular{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  /* avoid fixed height issues on small screens */
+  min-height: 90vh;
+  height: auto;
+
+  padding: 40px 16px;
+  box-sizing: border-box;
 }
+
 .popular h1{
-    color: #171717;
-    font-size: 50px;
-    font-weight: 600;
+  color: #171717;
+  font-size: clamp(24px, 4vw, 50px);
+  font-weight: 600;
+  text-align: center;
 }
+
 .popular hr{
-    width: 200px;
-    height: 6px;
-    border-radius: 10px;
-    background: #252525;
+  width: min(200px, 60%);
+  height: 6px;
+  border-radius: 10px;
+  background: #252525;
 }
+
+/* Items row */
 .popular-item{
-    margin-top: 50px;
-    display: flex;
-    gap: 30px;
+  width: min(1200px, 100%);
+  margin-top: 50px;
+
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+
+  /* allow wrapping for smaller screens */
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+/* ===== Tablet (≤ 1024px) ===== */
+@media (max-width: 1024px){
+  .popular{
+    min-height: auto;
+    padding: 35px 16px;
+  }
+
+  .popular-item{
+    margin-top: 35px;
+    gap: 22px;
+  }
+}
+
+/* ===== Small tablets / phones (≤ 768px) ===== */
+@media (max-width: 768px){
+  .popular{
+    padding: 28px 14px;
+  }
+
+  .popular-item{
+    margin-top: 28px;
+    gap: 18px;
+  }
+
+  .popular hr{
+    height: 4px;
+  }
+}
+
+/* ===== Mobile (≤ 480px) ===== */
+@media (max-width: 480px){
+  .popular{
+    padding: 22px 12px;
+  }
+
+  .popular-item{
+    margin-top: 22px;
+    gap: 14px;
+  }
 }
